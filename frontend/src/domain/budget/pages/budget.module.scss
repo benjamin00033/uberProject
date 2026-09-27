@@ -1,0 +1,298 @@
+@layer components {
+  .transparentToolbar {
+    --background: transparent;
+    --border-color: transparent;
+    --ion-toolbar-background: transparent;
+  }
+
+  .pageTitle {
+    font-size: var.$font-size-2xl;
+    font-weight: var.$font-weight-bold;
+    letter-spacing: -0.5px;
+    color: var(--color-text-default);
+  }
+
+  .cleanContent {
+    --background: var(--color-bg-default);
+  }
+
+  .dashboardContainer {
+    padding: var.$space-xl var.$space-md;
+    display: flex;
+    flex-direction: column;
+    gap: var.$space-2xl;
+  }
+
+  /* Summary Cards */
+  .summaryCards {
+    display: flex;
+    justify-content: space-between;
+    gap: var.$space-md;
+    flex-wrap: wrap;
+  }
+
+  .summaryCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    min-width: 100px;
+  }
+
+  .cardLabel {
+    font-size: var.$font-size-sm;
+    color: var(--color-text-muted);
+    font-weight: var.$font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var.$space-xs;
+  }
+
+  .cardValue {
+    font-size: var.$font-size-2xl;
+    font-weight: var.$font-weight-bold;
+    color: var(--color-text-default);
+  }
+
+  .textUsed {
+    color: var(--ion-color-medium);
+  }
+
+  .textRemaining {
+    color: var(--ion-color-dark);
+  }
+
+  /* Chart Section */
+  .chartSection {
+    display: flex;
+    align-items: center;
+    gap: var.$space-xl;
+
+    @media (max-width: 400px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .chartWrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+  }
+
+  .donutChart {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .donutBg {
+    fill: none;
+    stroke: var(--ion-border-color);
+    stroke-width: 2.5;
+  }
+
+  .donutSegment {
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    transition:
+      stroke-dasharray 1s ease-out,
+      stroke-dashoffset 1s ease-out;
+  }
+
+  .chartCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .chartCenterText {
+    font-size: var.$font-size-xl;
+    font-weight: var.$font-weight-bold;
+    color: var(--color-text-default);
+  }
+
+  .chartCenterLabel {
+    font-size: var.$font-size-xs;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .chartLegend {
+    display: flex;
+    flex-direction: column;
+    gap: var.$space-sm;
+    flex-grow: 1;
+  }
+
+  .legendItem {
+    display: flex;
+    align-items: center;
+    gap: var.$space-sm;
+    font-size: var.$font-size-sm;
+  }
+
+  .legendColor {
+    width: 8px;
+    height: 8px;
+    border-radius: var.$radius-full;
+    display: inline-block;
+  }
+
+  .legendLabel {
+    color: var(--color-text-default);
+    font-weight: var.$font-weight-normal;
+  }
+
+  /* List Styling */
+  .listHeader {
+    h3 {
+      font-size: var.$font-size-xl;
+      margin: 0;
+      font-weight: var.$font-weight-bold;
+      color: var(--color-text-default);
+      letter-spacing: -0.5px;
+    }
+  }
+
+  .budgetList {
+    display: flex;
+    flex-direction: column;
+    gap: var.$space-xl;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .budgetItem {
+    animation: fadeIn 0.4s ease-out both;
+    padding: var.$space-md;
+    border-radius: var.$radius-lg;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--ion-border-color);
+    transition:
+      transform var.$transition-speed-normal var.$transition-timing-ease-in-out,
+      box-shadow var.$transition-speed-normal var.$transition-timing-ease-in-out;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: var.$shadow-md;
+    }
+  }
+
+  .itemHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var.$space-md;
+  }
+
+  .itemTitleGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var.$space-xs;
+
+    h2 {
+      margin: 0;
+      font-size: var.$font-size-lg;
+      font-weight: var.$font-weight-semibold;
+      color: var(--color-text-default);
+    }
+  }
+
+  .categoryBadge {
+    display: inline-block;
+    font-size: var.$font-size-xs;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .deleteBtn {
+    --padding-start: 0;
+    --padding-end: 0;
+    font-size: var.$font-size-sm;
+    margin: 0;
+    height: auto;
+    font-weight: var.$font-weight-normal;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+      color: var(--ion-color-danger);
+    }
+  }
+
+  .itemProgressInfo {
+    display: flex;
+    justify-content: space-between;
+    font-size: var.$font-size-sm;
+    margin-bottom: var.$space-sm;
+  }
+
+  .usedText {
+    font-weight: var.$font-weight-semibold;
+    color: var(--color-text-default);
+  }
+
+  .totalText {
+    color: var(--color-text-muted);
+  }
+
+  .progressBarBg {
+    width: 100%;
+    height: 6px;
+    background: var(--ion-border-color);
+    border-radius: var.$radius-full;
+    overflow: hidden;
+    margin-bottom: var.$space-sm;
+  }
+
+  .progressBarFill {
+    height: 100%;
+    border-radius: var.$radius-full;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .itemFooter {
+    display: flex;
+    justify-content: flex-start;
+    color: var(--color-text-muted);
+    font-size: var.$font-size-xs;
+  }
+
+  .fabButton {
+    --background: var(--color-text-default);
+    --background-activated: var(--ion-color-step-800);
+    --background-hover: var(--ion-color-step-800);
+    --color: var(--ion-color-light);
+    --box-shadow: 0 4px 14px rgba(var(--ion-color-dark-rgb), 0.15);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:active {
+      transform: scale(0.92);
+    }
+  }
+
+  .loadingState,
+  .emptyState {
+    text-align: left;
+    padding: var.$space-2xl 0;
+    color: var(--color-text-muted);
+    font-size: var.$font-size-md;
+  }
+}

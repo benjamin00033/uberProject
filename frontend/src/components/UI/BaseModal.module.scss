@@ -1,0 +1,7 @@
+@layer components {
+  .modalContainer {
+    --border-radius: 16px;
+    --background: rgba(var(--ion-background-color-rgb), 0.9);
+    --backdrop-opacity: 0.4;
+  }
+}

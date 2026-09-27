@@ -1,0 +1,22 @@
+@layer components {
+  #mainLayout {
+    --side-max-width: 300px;
+  }
+
+  .title {
+    padding: var.$space-sm;
+    display: flex;
+    align-items: center;
+    gap: var.$space-xs;
+  }
+
+  .versionTag {
+    font-size: 0.7rem;
+    padding: var.$space-xs;
+    vertical-align: middle;
+  }
+
+  .breadcrumbs {
+    border-bottom: 1px solid var(--ion-color-step-150);
+  }
+}

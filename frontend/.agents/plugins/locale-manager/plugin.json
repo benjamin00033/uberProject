@@ -1,0 +1,7 @@
+{
+  "name": "locale-manager",
+  "description": "Pipeline for managing i18n translations and applying them to Vue pages.",
+  "skills": [
+    "skills/i18n-generator/SKILL.md"
+  ]
+}

@@ -1,0 +1,20 @@
+@layer components {
+  .skeleton {
+    --background: rgba(var(--ion-color-medium-rgb), 0.15);
+    --background-rgb: var(--ion-color-medium-rgb);
+  }
+  
+  .variant-text {
+    border-radius: 4px;
+    height: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .variant-circular {
+    border-radius: 50%;
+  }
+  
+  .variant-rectangular {
+    border-radius: 8px;
+  }
+}

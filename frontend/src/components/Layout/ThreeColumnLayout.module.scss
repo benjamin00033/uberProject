@@ -1,0 +1,20 @@
+@layer components {
+  .fullHeightGrid {
+    height: 100%;
+    padding: 0;
+  }
+
+  .fullHeightRow {
+    height: 100%;
+  }
+
+  .sideCol {
+    border-right: 1px solid var(--ion-color-step-150);
+    border-left: 1px solid var(--ion-color-step-150);
+    overflow-y: auto;
+  }
+
+  .mainCol {
+    overflow-y: auto;
+  }
+}

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- ==========================================
+         1. 核心與相容性設定 (Core & Compatibility)
+         ========================================== -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- ==========================================
+         2. 安全性設定 (Security)
+         ========================================== -->
+    <!-- Content Security Policy (CSP): 防禦 XSS 攻擊。請依據實際引用的 API 網域、Google Analytics 等進行放行 -->
+    <!-- http-equiv="Content-Security-Policy" -->
+    <meta
+      content="
+      default-src 'self'; 
+      script-src 'self' 'unsafe-inline' 'unsafe-eval'; 
+      style-src 'self' 'unsafe-inline'; 
+      img-src 'self' data: https:; 
+      font-src 'self' data:; 
+      connect-src 'self' https://api.yourdomain.com;
+      object-src 'none'; 
+      base-uri 'self';
+    "
+    />
+    <!-- Referrer Policy: 控制跨域請求時夾帶的 Referrer 資訊，保護使用者隱私 -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- ==========================================
+         3. SEO 與網站資訊 (SEO & Metadata)
+         ========================================== -->
+    <title>菜單網站 | 您的專屬線上點餐平台</title>
+    <meta
+      name="description"
+      content="提供最新鮮、最美味的餐點，立即瀏覽我們的線上菜單並輕鬆點餐。"
+    />
+    <meta name="keywords" content="菜單, 線上點餐, 餐廳, 美食, 外帶" />
+    <meta name="author" content="您的品牌名稱" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- ==========================================
+         4. 社群分享標籤 (Open Graph / Twitter Card)
+         ========================================== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="菜單網站 | 您的專屬線上點餐平台" />
+    <meta
+      property="og:description"
+      content="提供最新鮮、最美味的餐點，立即瀏覽我們的線上菜單並輕鬆點餐。"
+    />
+    <!-- <meta property="og:image" content="https://yourdomain.com/og-image.jpg" />
+    <meta property="og:url" content="https://yourdomain.com/" /> -->
+    <meta property="og:site_name" content="菜單網站" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="菜單網站 | 您的專屬線上點餐平台" />
+    <meta
+      name="twitter:description"
+      content="立即瀏覽我們的線上菜單並輕鬆點餐。"
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourdomain.com/twitter-image.jpg"
+    />
+
+    <!-- ==========================================
+         5. 效能優化 (Performance)
+         ========================================== -->
+    <!-- 預先連線到重要的第三方 API 或字體伺服器 (若有的話) -->
+    <!-- <link rel="preconnect" href="https://api.yourdomain.com" crossorigin /> -->
+    <!-- <link rel="dns-prefetch" href="https://api.yourdomain.com" /> -->
+
+    <!-- ==========================================
+         6. PWA 與行動裝置體驗 (PWA & Mobile UI)
+         ========================================== -->
+    <link rel="icon" type="image/svg+xml" href="/menu.svg" />
+    <!-- 蘋果設備的桌面圖示 -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  </head>
+  <body>
+    <!-- 當瀏覽器停用 JavaScript 時的警告 -->
+    <noscript>
+      <div
+        style="
+          padding: 20px;
+          text-align: center;
+          color: #721c24;
+          background-color: #f8d7da;
+          border-bottom: 1px solid #f5c6cb;
+        "
+      >
+        <strong>請啟用 JavaScript！</strong>
+        為了讓「菜單網站」正常運作，您必須在瀏覽器中啟用 JavaScript。
+      </div>
+    </noscript>
+
+    <!-- 應用程式掛載點 -->
+    <div id="app"></div>
+
+    <!-- 進入點腳本 -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

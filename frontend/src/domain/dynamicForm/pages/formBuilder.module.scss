@@ -1,0 +1,13 @@
+@layer components {
+  .sectionHeader {
+    color: var(--ion-color-medium);
+    font-size: 1.1em;
+    margin-bottom: var.$space-sm;
+  }
+
+  .buttonGroup {
+    display: flex;
+    gap: var.$space-sm;
+    margin-top: var.$space-sm;
+  }
+}

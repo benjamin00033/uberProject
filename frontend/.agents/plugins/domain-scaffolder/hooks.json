@@ -1,0 +1,14 @@
+{
+  "hooks": [
+    {
+      "trigger": "post_tool_execution",
+      "tool_name": "run_command",
+      "condition": "args.CommandLine.includes('scaffold.mjs')",
+      "action": {
+        "type": "run_command",
+        "command": "npx eslint --fix src/domain/**/*.ts && npx prettier --write src/domain/**/*.vue"
+      },
+      "description": "Automatically formats and lints the newly generated domain files after scaffolding."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "name": "project-scanner",
+  "version": "1.0.0",
+  "description": "Invoke multiple subagents concurrently to scan and search the project before starting the dev-workflow."
+}

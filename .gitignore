@@ -1,0 +1,76 @@
+Dependencies
+
+node_modules/
+
+Build & compiled output
+
+dist/
+dist-ssr/
+build/
+
+Logs
+
+logs/
+.log
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+Test & coverage
+
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+playwright/.auth/
+
+Environment variables
+
+.env
+.env.*.local
+*.local
+
+Agent
+
+.agent/
+
+Editor & IDE
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+.idea/
+.project
+.classpath
+.c9/
+.settings/
+*.sublime-workspace
+*.launch
+*.suo
+.ntvs
+*.njsproj
+*.sln
+*.sw?
+*.njsproj
+
+OS
+
+.DS_Store
+
+Temporary & runtime files
+
+.temp/
+.tmp/
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+Node.js diagnostic reports
+
+report.[0-9].[0-9].[0-9].[0-9].json

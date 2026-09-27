@@ -1,0 +1,26 @@
+.masterDetailGrid {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  --ion-grid-padding: 0;
+  --ion-grid-column-padding: 0;
+}
+
+.masterDetailRow {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.listCol {
+  height: 100%;
+  border-right: 1px solid var(--ion-color-step-150, #d7d8da);
+  background: var(--ion-color-step-50, #f4f5f8);
+  overflow-y: auto;
+}
+
+.detailCol {
+  height: 100%;
+  background: var(--ion-background-color, #ffffff);
+  overflow-y: auto;
+}

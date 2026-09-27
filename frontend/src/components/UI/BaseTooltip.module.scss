@@ -1,0 +1,45 @@
+@layer components {
+  .tooltipWrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tooltipContent {
+    position: absolute;
+    background: rgba(var(--ion-text-color-rgb), 0.85);
+    color: var(--ion-background-color);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 1000;
+    pointer-events: none;
+    box-shadow: 0 4px 6px rgba(var(--ion-text-color-rgb), 0.1);
+  }
+
+  .position-top {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+  }
+  
+  .position-bottom {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+  }
+
+  .position-left {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-8px);
+  }
+
+  .position-right {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+  }
+}

@@ -1,0 +1,28 @@
+@layer components {
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var.$space-md;
+    padding: var.$space-md;
+  }
+
+  .paginationBtn {
+    padding: var.$space-sm var.$space-md;
+    border: 1px solid var(--ion-color-medium);
+    background-color: var(--color-bg-default);
+    border-radius: var.$radius-md;
+    cursor: pointer;
+    color: var(--color-text-default);
+  }
+
+  .paginationBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .paginationInfo {
+    font-size: var.$font-size-sm;
+    color: var(--ion-color-medium);
+  }
+}

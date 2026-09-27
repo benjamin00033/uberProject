@@ -1,0 +1,5 @@
+{
+  "name": "scss-import-checker",
+  "description": "確保撰寫 SCSS 時不會重複引入已由 Vite 全域注入的樣式檔案。",
+  "version": "1.0.0"
+}

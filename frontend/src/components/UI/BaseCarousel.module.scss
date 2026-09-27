@@ -1,0 +1,32 @@
+@layer components {
+  .carouselContainer {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carouselTrack {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: var.$space-md;
+    padding-bottom: var.$space-sm;
+    scrollbar-width: thin;
+    
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+    &::-webkit-scrollbar-track {
+      background: rgba(var(--ion-color-medium-rgb), 0.1);
+      border-radius: var.$radius-full;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--ion-color-medium);
+      border-radius: var.$radius-full;
+    }
+
+    > * {
+      scroll-snap-align: center;
+      flex-shrink: 0;
+    }
+  }
+}

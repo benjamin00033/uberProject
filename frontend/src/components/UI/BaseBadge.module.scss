@@ -1,0 +1,12 @@
+
+@layer components {
+  .badge {
+    font-size: var.$font-size-xs;
+    font-weight: var.$font-weight-bold;
+    border-radius: var.$radius-sm;
+    padding: var.$space-xs var.$space-sm;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

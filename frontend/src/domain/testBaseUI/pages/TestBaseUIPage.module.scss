@@ -1,0 +1,68 @@
+@layer components {
+  .buttonGroup {
+    margin-top: var.$space-sm;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var.$space-sm;
+  }
+
+  :global(ion-card) {
+    margin: 0;
+  }
+
+  .carouselCard {
+    width: 200px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ion-color-light);
+    color: var(--color-text-default);
+    border-radius: var.$radius-md;
+    font-size: var.$font-size-lg;
+    font-weight: var.$font-weight-bold;
+  }
+
+  .preBlock {
+    background: var(--ion-color-light);
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    overflow: auto;
+  }
+  
+  .centerText {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .skeletonRow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .flex1 {
+    flex: 1;
+  }
+  
+  .tooltipRow {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .verticalRadioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .avatarRow {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    align-items: center;
+  }
+}

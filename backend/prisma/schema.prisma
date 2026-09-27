@@ -1,0 +1,307 @@
+// ===========================
+// uberMenu Prisma Schema
+// Database: Supabase PostgreSQL
+// ===========================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ===========================
+// User & Auth Domain
+// ===========================
+
+model User {
+  id          String           @id @default(uuid())
+  username    String           @unique @db.VarChar(50)
+  email       String           @unique @db.VarChar(255)
+  password    String           @map("password_hash") @db.VarChar(255)
+  name        String           @db.VarChar(100)
+  status      String           @default("ACTIVE") @db.VarChar(20)
+  roles       UserRole[]
+  permissions UserPermission[]
+  createdAt   DateTime         @default(now()) @map("created_at")
+  updatedAt   DateTime         @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model Role {
+  id          String           @id @db.VarChar(50)
+  name        String           @db.VarChar(100)
+  description String?          @db.Text
+  isSystem    Boolean          @default(false) @map("is_system")
+  users       UserRole[]
+  permissions RolePermission[]
+  createdAt   DateTime         @default(now()) @map("created_at")
+
+  @@map("roles")
+}
+
+model Permission {
+  code        String           @id @db.VarChar(100)
+  name        String           @db.VarChar(100)
+  resource    String           @db.VarChar(50)
+  action      String           @db.VarChar(50)
+  description String?          @db.Text
+  roles       RolePermission[]
+  users       UserPermission[]
+
+  @@map("permissions")
+}
+
+model UserRole {
+  userId     String   @map("user_id")
+  roleId     String   @map("role_id")
+  assignedAt DateTime @default(now()) @map("assigned_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+  @@map("user_roles")
+}
+
+model RolePermission {
+  roleId         String     @map("role_id")
+  permissionCode String     @map("permission_code")
+
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionCode], references: [code], onDelete: Cascade)
+
+  @@id([roleId, permissionCode])
+  @@map("role_permissions")
+}
+
+model UserPermission {
+  userId         String     @map("user_id")
+  permissionCode String     @map("permission_code")
+
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionCode], references: [code], onDelete: Cascade)
+
+  @@id([userId, permissionCode])
+  @@map("user_permissions")
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String?  @map("user_id")
+  action    String   @db.VarChar(100)
+  targetId  String?  @map("target_id")
+  ipAddress String?  @map("ip_address") @db.VarChar(50)
+  userAgent String?  @map("user_agent") @db.Text
+  details   Json?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([userId, action])
+  @@map("audit_logs")
+}
+
+// ===========================
+// Menu Domain
+// ===========================
+
+model Menu {
+  id                   String   @id @default(uuid())
+  title                Json     // { translations: { en, zh } }
+  isActive             Boolean  @default(true) @map("is_active")
+  serviceAvailability  Json?    @map("service_availability") // ServiceAvailability[]
+  categoryIds          String[] @map("category_ids")
+  createdAt            DateTime @default(now()) @map("created_at")
+  updatedAt            DateTime @updatedAt @map("updated_at")
+
+  @@map("menus")
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  title     Json     // { translations: { en, zh } }
+  entities  Json?    // Entity[] — [{ id, type }]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("categories")
+}
+
+model Item {
+  id               String   @id @default(uuid())
+  externalData     String?  @map("external_data")
+  title            Json     // { translations: { en, zh } }
+  description      Json     // { translations: { en, zh } }
+  imageUrl         String   @default("") @map("image_url")
+  priceInfo        Json     @map("price_info")       // PriceInfo
+  quantityInfo     Json?    @map("quantity_info")     // QuantityInfo
+  modifierGroupIds Json?    @map("modifier_group_ids") // ModifierGroupIds
+  taxInfo          Json?    @map("tax_info")
+  nutritionalInfo  Json?    @map("nutritional_info")
+  dishInfo         Json?    @map("dish_info")
+  taxLabelInfo     Json?    @map("tax_label_info")
+  productInfo      Json?    @map("product_info")
+  bundledItems     Json?    @map("bundled_items")
+  status           String   @default("ACTIVE") @db.VarChar(20)
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  @@index([status, createdAt(sort: Desc)])
+  @@index([externalData])
+  @@map("items")
+}
+
+model ModifierGroup {
+  id              String   @id @default(uuid())
+  title           Json?    // { translations: { en, zh } }
+  quantityInfo    Json?    @map("quantity_info")
+  modifierOptions Json?    @map("modifier_options") // Entity[]
+  extraData       Json?    @map("extra_data")       // catch-all for dynamic fields
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@map("modifier_groups")
+}
+
+// ===========================
+// Dynamic Form Domain
+// ===========================
+
+model DynamicForm {
+  formId      String           @id @map("form_id") @db.VarChar(64)
+  title       Json             // I18nString (string | { en, zh })
+  totalSteps  Int              @default(1) @map("total_steps")
+  steps       Json             // FormStep[] — stored as JSONB
+  status      String           @default("PUBLISHED") @db.VarChar(20)
+  createdAt   DateTime         @default(now()) @map("created_at")
+  updatedAt   DateTime         @updatedAt @map("updated_at")
+
+  submissions FormSubmission[]
+
+  @@index([status])
+  @@map("dynamic_forms")
+}
+
+model FormSubmission {
+  id          String      @id @default(uuid())
+  formId      String      @map("form_id") @db.VarChar(64)
+  data        Json
+  submittedBy String?     @map("submitted_by") @db.VarChar(128)
+  createdAt   DateTime    @default(now()) @map("created_at")
+
+  form        DynamicForm @relation(fields: [formId], references: [formId], onDelete: Cascade)
+
+  @@index([formId])
+  @@map("form_submissions")
+}
+
+// ===========================
+// Budget Domain
+// ===========================
+
+model Budget {
+  id         String   @id @default(uuid())
+  title      String
+  amount     Float
+  usedAmount Float    @default(0) @map("used_amount")
+  category   String
+  startDate  String   @map("start_date") // "YYYY-MM-DD"
+  endDate    String   @map("end_date")   // "YYYY-MM-DD"
+  isActive   Boolean  @default(true) @map("is_active")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@map("budgets")
+}
+
+// ===========================
+// Project Scheduler Domain
+// ===========================
+
+enum TaskStatus {
+  todo
+  in_progress
+  done
+}
+
+model Project {
+  id          String             @id @default(uuid()) @db.VarChar(36)
+  name        String             @db.VarChar(100)
+  description String?            @db.Text
+  startDate   DateTime           @map("start_date") @db.Date
+  endDate     DateTime           @map("end_date") @db.Date
+  progress    Int                @default(0) @db.SmallInt
+  milestones  ProjectMilestone[]
+  tasks       Task[]
+  createdAt   DateTime           @default(now()) @map("created_at")
+  updatedAt   DateTime           @updatedAt @map("updated_at")
+
+  @@index([startDate, endDate], name: "idx_projects_dates")
+  @@map("projects")
+}
+
+model ProjectMilestone {
+  id         String   @id @default(uuid()) @db.VarChar(36)
+  projectId  String   @map("project_id") @db.VarChar(36)
+  title      String   @db.VarChar(100)
+  orderIndex Int      @default(0) @map("order_index")
+  project    Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId, orderIndex])
+  @@map("project_milestones")
+}
+
+model Member {
+  id        String         @id @default(uuid()) @db.VarChar(36)
+  name      String         @db.VarChar(100)
+  role      String         @db.VarChar(50)
+  avatar    String?        @db.VarChar(255)
+  tasks     TaskAssignee[]
+  createdAt DateTime       @default(now()) @map("created_at")
+  updatedAt DateTime       @updatedAt @map("updated_at")
+
+
+  @@map("members")
+}
+
+model Task {
+  id        String         @id @default(uuid()) @db.VarChar(36)
+  projectId String         @map("project_id") @db.VarChar(36)
+  name      String         @db.VarChar(150)
+  startDate DateTime       @map("start_date") @db.Date
+  endDate   DateTime       @map("end_date") @db.Date
+  status    TaskStatus     @default(todo)
+  project   Project        @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  assignees TaskAssignee[]
+  createdAt DateTime       @default(now()) @map("created_at")
+  updatedAt DateTime       @updatedAt @map("updated_at")
+
+  @@index([projectId], name: "idx_tasks_project_id")
+  @@index([startDate, endDate], name: "idx_tasks_schedule_dates")
+  @@index([status], name: "idx_tasks_status")
+  @@map("tasks")
+}
+
+model TaskAssignee {
+  taskId     String   @map("task_id") @db.VarChar(36)
+  memberId   String   @map("member_id") @db.VarChar(36)
+  assignedAt DateTime @default(now()) @map("assigned_at")
+
+  task   Task   @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  member Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@id([taskId, memberId])
+  @@index([memberId], name: "idx_task_assignees_member_id")
+  @@map("task_assignees")
+}
+
+model Holiday {
+  date        String  @id @db.VarChar(8) // "YYYYMMDD"
+  week        String  @db.VarChar(4)   // "一", "二", ...
+  isHoliday   Boolean @default(true) @map("is_holiday")
+  description String? @db.VarChar(100)
+
+  @@map("holidays")
+}
+

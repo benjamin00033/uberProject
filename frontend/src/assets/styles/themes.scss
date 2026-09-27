@@ -1,0 +1,156 @@
+$themes: (
+  light: (
+    // Base Colors
+    "primary": #ff0052,
+    "secondary": #888888,
+    "success": #22c55e,
+    "warning": #f59e0b,
+    "danger": #ef4444,
+    "error": #dc2626,
+    // UI Colors
+  ),
+  dark: (
+    // Base Colors
+    "primary": #646cff,
+    "secondary": #a1a1a1,
+    "success": #4ade80,
+    "warning": #fbbf24,
+    "danger": #f87171,
+    "error": #f87171,
+  ),
+  cyberpunk: (
+    // Base Colors
+    "primary": #ff00ff,
+    // Neon Magenta
+    "secondary": #8a2be2,
+    // Deep Blue-Violet
+    "success": #39ff14,
+    // Toxic Neon Green
+    "warning": #ffb000,
+    // Bright Cyber Orange
+    "danger": #ff003c,
+    // Laser Red
+    "error": #ff003c,
+  ),
+);
+
+// 2. 顏色計算配置 (列舉：淺色百分比、文字黑白等)
+$color-config: (
+  shade-percent: 12%,
+  // Shade 變暗比例 (Ionic 預設約為 12%)
+  tint-percent: 10%,
+  // Tint 變亮比例 (Ionic 預設約為 10%)
+  light-text: #ffffff,
+  // 針對深底色的對比字體 (白字)
+  dark-text: #000000,
+  // 針對淺底色的對比字體 (黑字)
+  threshold: 60%, // 判斷深淺色的亮度閾值
+);
+
+// (A) 將 HEX 轉換為 Ionic 需要的逗號分隔 RGB (例：255, 255, 255)
+@function hex-to-rgb($color) {
+  @return red($color) + ", " + green($color) + ", " + blue($color);
+}
+
+// (B) 根據顏色亮度，自動回傳黑色或白色的對比色 (Contrast)
+@function get-contrast($color) {
+  $threshold: map-get($color-config, threshold);
+  $lightness: lightness($color);
+
+  // 如果顏色亮度大於閾值 (偏淺)，則回傳黑字；反之回傳白字
+  @if ($lightness > $threshold) {
+    @return map-get($color-config, dark-text);
+  } @else {
+    @return map-get($color-config, light-text);
+  }
+}
+
+@mixin generate-ionic-colors($theme-map) {
+  $shade-percent: map-get($color-config, shade-percent);
+  $tint-percent: map-get($color-config, tint-percent);
+
+  @each $name, $hex-color in $theme-map {
+    // 透過函式與 mix() 計算出所有衍生色
+    $rgb: hex-to-rgb($hex-color);
+    $contrast: get-contrast($hex-color);
+    $contrast-rgb: hex-to-rgb($contrast);
+
+    // 與黑色混合產生 Shade，與白色混合產生 Tint
+    $shade: mix(black, $hex-color, $shade-percent);
+    $tint: mix(white, $hex-color, $tint-percent);
+
+    // 產出 Ionic 原生 CSS 變數格式
+    --ion-color-#{$name}: #{$hex-color};
+    --ion-color-#{$name}-rgb: #{$rgb};
+    --ion-color-#{$name}-contrast: #{$contrast};
+    --ion-color-#{$name}-contrast-rgb: #{$contrast-rgb};
+    --ion-color-#{$name}-shade: #{$shade};
+    --ion-color-#{$name}-tint: #{$tint};
+  }
+}
+
+:root {
+  $light-theme: map-get($themes, light);
+  @include generate-ionic-colors($light-theme);
+
+  // Custom UI Variables - Light Theme Defaults
+  --color-bg-default: #ffffff;
+  --color-text-default: #121212;
+  --color-card-bg: #fcfcfc;
+  --ion-background-color: #ffffff;
+  --ion-background-color-rgb: 255, 255, 255;
+  --ion-text-color: #121212;
+  --ion-text-color-rgb: 18, 18, 18;
+  --ion-item-background: #ffffff;
+  --ion-toolbar-background: #ffffff;
+  --ion-card-background: #fcfcfc;
+  --ion-border-color: #e0e0e0;
+  --ion-item-border-color: #e0e0e0;
+}
+
+@each $theme-name, $theme-map in $themes {
+  [data-theme="#{$theme-name}"] {
+    @include generate-ionic-colors($theme-map);
+
+    @if $theme-name == "light" {
+      --color-bg-default: #ffffff;
+      --color-text-default: #121212;
+      --color-card-bg: #fcfcfc;
+      --ion-background-color: #ffffff;
+      --ion-background-color-rgb: 255, 255, 255;
+      --ion-text-color: #121212;
+      --ion-text-color-rgb: 18, 18, 18;
+      --ion-item-background: #ffffff;
+      --ion-toolbar-background: #ffffff;
+      --ion-card-background: #fcfcfc;
+      --ion-border-color: #e0e0e0;
+      --ion-item-border-color: #e0e0e0;
+    } @else if $theme-name == "dark" {
+      --color-bg-default: #121212;
+      --color-text-default: #f5f5f5;
+      --color-card-bg: #1e1e1e;
+      --ion-background-color: #121212;
+      --ion-background-color-rgb: 18, 18, 18;
+      --ion-text-color: #f5f5f5;
+      --ion-text-color-rgb: 245, 245, 245;
+      --ion-item-background: #1e1e1e;
+      --ion-toolbar-background: #1e1e1e;
+      --ion-card-background: #1e1e1e;
+      --ion-border-color: #2c2c2e;
+      --ion-item-border-color: #2c2c2e;
+    } @else if $theme-name == "cyberpunk" {
+      --color-bg-default: #0a0412; // Very dark purple-black
+      --color-text-default: #00f0ff; // Neon Cyan
+      --color-card-bg: #14052b; // Cyber violet card bg
+      --ion-background-color: #0a0412;
+      --ion-background-color-rgb: 10, 4, 18;
+      --ion-text-color: #00f0ff;
+      --ion-text-color-rgb: 0, 240, 255;
+      --ion-item-background: #14052b;
+      --ion-toolbar-background: #14052b;
+      --ion-card-background: #14052b;
+      --ion-border-color: #ff00ff; // Neon Magenta
+      --ion-item-border-color: #ff00ff;
+    }
+  }
+}

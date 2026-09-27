@@ -1,0 +1,32 @@
+@layer components {
+  .radioWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var.$space-md;
+  }
+  
+  .mainLabel {
+    font-size: var.$font-size-sm;
+    font-weight: var.$font-weight-semibold;
+    margin-bottom: var.$space-xs;
+    color: var(--color-text-default);
+  }
+  
+  .item {
+    --background: transparent;
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    margin-bottom: var.$space-xs;
+  }
+  
+  .label {
+    font-size: var.$font-size-sm;
+    color: var(--color-text-default);
+    margin-left: var.$space-sm;
+  }
+  
+  .errorText {
+    font-size: var.$font-size-xs;
+    margin-top: var.$space-xs;
+  }
+}

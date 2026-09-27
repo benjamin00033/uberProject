@@ -1,0 +1,30 @@
+@layer components {
+  .inputWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var.$space-md;
+  }
+
+  .label {
+    font-size: var.$font-size-sm;
+    font-weight: var.$font-weight-semibold;
+    margin-bottom: var.$space-xs;
+    color: var(--color-text-default);
+  }
+
+  .item {
+    --background: transparent;
+    border: 1px solid var(--ion-color-medium);
+    border-radius: var.$radius-md;
+    transition: border-color 0.3s;
+    height: fit-content;
+    &.item-has-focus {
+      border-color: var(--ion-color-primary);
+    }
+  }
+
+  .errorText {
+    font-size: var.$font-size-xs;
+    margin-top: var.$space-xs;
+  }
+}

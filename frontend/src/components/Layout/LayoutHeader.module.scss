@@ -1,0 +1,16 @@
+@layer components {
+  .title {
+    padding: var.$space-sm;
+    display: flex;
+    align-items: center;
+    gap: var.$space-xs;
+  }
+  
+  .timeDisplay {
+    margin-right: var.$space-md;
+    font-size: var.$font-size-sm;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+  }
+}

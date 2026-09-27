@@ -1,0 +1,14 @@
+@layer components {
+  .baseSwitchWrapper {
+    margin-bottom: 1rem;
+  }
+  .toggle {
+    padding: 8px 0;
+  }
+  .label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-right: 12px;
+    color: var(--ion-color-dark);
+  }
+}

@@ -1,0 +1,87 @@
+@layer components {
+  .menuInfoContainer {
+    padding: var.$space-sm;
+  }
+
+  .emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2.5rem var.$space-lg;
+    background: var(--ion-color-light);
+    border-radius: var.$radius-xl;
+    margin: var.$space-md;
+  }
+
+  .emptyIcon {
+    font-size: 64px;
+    color: var(--ion-color-medium);
+    margin-bottom: var.$space-md;
+  }
+
+  .menuCard {
+    margin-bottom: var.$space-md;
+    border-radius: var.$radius-xl;
+    box-shadow: var.$shadow-md;
+    background-color: var(--color-card-bg);
+  }
+
+  .titleIcon {
+    vertical-align: middle;
+    margin-right: var.$space-xs;
+  }
+
+  .sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: var.$space-sm;
+    font-size: var.$font-size-md;
+    font-weight: var.$font-weight-semibold;
+    margin-top: var.$space-md;
+    margin-bottom: var.$space-sm;
+    color: var(--ion-color-dark);
+  }
+
+  .scheduleList {
+    background: transparent;
+    border-radius: var.$radius-md;
+    overflow: hidden;
+
+    ion-item {
+      --padding-start: 0;
+      --inner-padding-end: 0;
+      --background: transparent;
+      font-size: 0.95rem;
+    }
+  }
+
+  .chipContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: var.$space-sm;
+    gap: var.$space-xs;
+    overflow-x: scroll;
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      scrollbar-width: 1px;
+    }
+
+    ion-chip {
+      min-width: fit-content;
+      margin: 0;
+      font-size: 0.85rem;
+      white-space: nowrap;
+
+      &[invert="true"] {
+        --background: var(--ion-color-base);
+        --color: var(--ion-color-contrast);
+        background: var(--ion-color-base);
+        color: var(--ion-color-contrast);
+      }
+    }
+  }
+}

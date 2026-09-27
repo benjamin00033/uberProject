@@ -1,0 +1,208 @@
+@layer components {
+  .bentoCard {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .conflictAlert {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--ion-color-danger, #eb445a);
+    color: var(--ion-color-danger-contrast, #ffffff);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .timelineContainer {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--ion-color-light);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .timelineHeader {
+    display: flex;
+    background: var(--ion-color-light);
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    color: var(--ion-color-medium);
+    align-items: center;
+  }
+
+  .memberColumn {
+    width: 200px;
+    flex-shrink: 0;
+    padding: 0 16px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .daysHeader {
+    flex: 1;
+    display: flex;
+  }
+
+  .dateColumn {
+    flex: 1;
+    border-left: 1px dashed #eee;
+    text-align: center;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 4px;
+  }
+
+  .holidayCol {
+    background-color: rgba(var(--ion-color-danger-rgb, 235, 68, 90), 0.05);
+    color: var(--ion-color-danger);
+  }
+
+  .holidayTag {
+    font-size: 0.65rem;
+    margin-top: 2px;
+    padding: 2px 4px;
+    background: var(--ion-color-danger);
+    color: white;
+    border-radius: 4px;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .timelineRow {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 16px 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .timelineTracks {
+    flex: 1;
+    position: relative;
+    min-height: 40px;
+  }
+
+  .dayCellsContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+  }
+
+  .dayCell {
+    flex: 1;
+    border-left: 1px dashed #eee;
+    height: 100%;
+    background-color: var(--ion-color-white);
+
+    &.holidayCell {
+      background-color: rgba(var(--ion-color-danger-rgb, 235, 68, 90), 0.08);
+    }
+  }
+
+  .taskBar {
+    position: absolute;
+    height: 28px;
+    background-color: var(--ion-color-primary);
+    color: var(--ion-color-primary-contrast);
+    border-radius: 4px;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    z-index: 10;
+    transition: left 0.3s ease, width 0.3s ease, top 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .taskBar span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+  }
+
+  .editIcon {
+    margin-left: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  .editIcon:hover {
+    opacity: 1;
+  }
+
+  .conflictBar {
+    background: var(--ion-color-danger) !important;
+    animation: pulseRed 2s infinite;
+    z-index: 2;
+  }
+
+  @keyframes pulseRed {
+    0% {
+      box-shadow: 0 0 0 0 rgba(235, 68, 90, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(235, 68, 90, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(235, 68, 90, 0);
+    }
+  }
+
+  .container {
+    // 記得使用 design token, e.g. padding: var.$spacing-md;
+  }
+
+  .smallText {
+    font-size: 0.8rem;
+  }
+  
+  .progressText {
+    font-size: 0.8rem;
+    margin-top: 4px;
+  }
+  
+  .fullHeightCard {
+    height: 100%;
+  }
+  
+  .conflictMessage {
+    margin-left: 12px;
+  }
+  
+  .memberRole {
+    font-size: 0.75rem;
+    color: var(--ion-color-medium);
+  }
+  
+  .clickableBadge {
+    cursor: pointer;
+    transition: transform 0.2s;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .noPadding {
+    padding: 0;
+  }
+}

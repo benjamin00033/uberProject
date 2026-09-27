@@ -1,0 +1,48 @@
+.bentoWrapper {
+  height: 100%;
+  padding: 16px;
+  background: var(--ion-color-step-50, #f4f5f8);
+  overflow-y: auto;
+}
+
+.bentoGrid {
+  display: grid;
+  gap: 16px;
+  /* 預設手機為單欄 */
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(150px, auto);
+}
+
+/* 平板以上為 3 欄 */
+@media (min-width: 768px) {
+  .bentoGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .bentoHero {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  
+  .bentoWide {
+    grid-column: span 2;
+  }
+  
+  .bentoTall {
+    grid-row: span 2;
+  }
+}
+
+/* 桌機以上為 4 欄 */
+@media (min-width: 1024px) {
+  .bentoGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 確保插槽內的元素(通常是 card) 填滿 grid area */
+.bentoGrid > * {
+  width: 100%;
+  height: 100%;
+  margin: 0; /* 移除 ion-card 預設 margin */
+}

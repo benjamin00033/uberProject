@@ -1,0 +1,10 @@
+// 規劃出layer 所設定的優先級別，最後設定內容
+@layer reset, base, components;
+
+@import url("https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&display=swap");
+@import "./reset.scss";
+@import "./variables";
+@import "./mixins.scss";
+@import "./themes.scss";
+@import "./globals.scss";
+@import "./iconConfig.scss";

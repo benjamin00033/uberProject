@@ -1,0 +1,5 @@
+{
+  "name": "shared-design-enforcer",
+  "description": "確保 SCSS 樣式開發時遵循共用設計原則，強制使用 mixins.scss 與 variables.js。",
+  "version": "1.0.0"
+}

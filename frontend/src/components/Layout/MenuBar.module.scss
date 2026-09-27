@@ -1,0 +1,33 @@
+@layer components {
+  .menuList {
+    background: transparent;
+    padding: 0;
+  }
+
+  .menuItem {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --min-height: 50px;
+    margin-bottom: var.$space-xs;
+    border-radius: var.$radius-md;
+    --background: transparent;
+
+    &::part(native) {
+      transition: all 0.2s ease;
+    }
+
+    &:hover {
+      --background: rgba(var(--ion-color-primary-rgb), 0.1);
+
+      .menuIcon {
+        color: var(--ion-color-primary);
+      }
+    }
+  }
+
+  .menuIcon {
+    font-size: 20px;
+    margin-right: var.$space-sm;
+    color: var(--ion-color-medium);
+  }
+}

@@ -1,0 +1,52 @@
+@layer components {
+  .tableContainer {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: var.$radius-md;
+    border: 1px solid var(--ion-color-light-shade);
+    background: var(--color-card-bg);
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  .th {
+    padding: var.$space-sm var.$space-md;
+    background-color: rgba(var(--ion-color-primary-rgb), 0.1);
+    color: var(--color-text-default);
+    font-weight: var.$font-weight-semibold;
+    border-bottom: 2px solid var(--ion-color-light-shade);
+  }
+
+  .tr {
+    border-bottom: 1px solid var(--ion-color-light-shade);
+    transition: background-color 0.2s;
+    
+    &:hover {
+      background-color: rgba(var(--ion-color-medium-rgb), 0.05);
+    }
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .td {
+    padding: var.$space-sm var.$space-md;
+    color: var(--color-text-default);
+  }
+
+  .emptyState {
+    text-align: center;
+    padding: var.$space-xl;
+    color: var(--ion-color-medium);
+  }
+
+  .radioGroup {
+    display: flex;
+    gap: 8px;
+  }
+}

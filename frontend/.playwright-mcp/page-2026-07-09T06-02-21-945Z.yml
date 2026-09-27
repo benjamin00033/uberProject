@@ -1,0 +1,130 @@
+- generic [ref=f7e4]:
+  - generic:
+    - navigation "menu" [ref=f7e5]:
+      - generic [ref=f7e6]:
+        - generic:
+          - generic [ref=f7e11]:
+            - generic:
+              - text: 菜單平台 - 選單
+              - generic [ref=f7e12]:
+                - generic: v2.0.0
+          - list [ref=f7e16]:
+            - listitem [ref=f7e18]:
+              - button "視訊電話" [ref=f7e19] [cursor=pointer]:
+                - img [ref=f7e20]:
+                  - img [ref=f7e22]
+                - generic [ref=f7e27]: 視訊電話
+            - listitem [ref=f7e29]:
+              - button "表單問卷" [ref=f7e30] [cursor=pointer]:
+                - img [ref=f7e31]:
+                  - img [ref=f7e33]
+                - generic [ref=f7e40]: 表單問卷
+            - listitem [ref=f7e42]:
+              - button "表單建置器" [ref=f7e43] [cursor=pointer]:
+                - img [ref=f7e44]:
+                  - img [ref=f7e46]
+                - generic [ref=f7e53]: 表單建置器
+            - listitem [ref=f7e55]:
+              - button "菜單頁面" [ref=f7e56] [cursor=pointer]:
+                - img [ref=f7e57]:
+                  - img [ref=f7e59]
+                - generic [ref=f7e64]: 菜單頁面
+            - listitem [ref=f7e66]:
+              - button "選項群組" [ref=f7e67] [cursor=pointer]:
+                - img [ref=f7e68]:
+                  - img [ref=f7e70]
+                - generic [ref=f7e77]: 選項群組
+            - listitem [ref=f7e79]:
+              - button "營業時間" [ref=f7e80] [cursor=pointer]:
+                - img [ref=f7e81]:
+                  - img [ref=f7e83]
+                - generic [ref=f7e88]: 營業時間
+            - listitem [ref=f7e90]:
+              - button "菜單品項" [ref=f7e91] [cursor=pointer]:
+                - img [ref=f7e92]:
+                  - img [ref=f7e94]
+                - generic [ref=f7e101]: 菜單品項
+            - listitem [ref=f7e103]:
+              - button "UI 組件頁面" [ref=f7e104] [cursor=pointer]:
+                - img [ref=f7e105]:
+                  - img [ref=f7e107]
+                - generic [ref=f7e116]: UI 組件頁面
+    - generic [ref=f7e117]:
+      - banner [ref=f7e118]:
+        - generic [ref=f7e120]:
+          - generic [ref=f7e123]:
+            - generic: 菜單平台
+          - generic [ref=f7e124]:
+            - switch "中文" [ref=f7e125] [cursor=pointer]:
+              - generic [ref=f7e127]:
+                - generic: 中文
+            - button [ref=f7e133] [cursor=pointer]:
+              - generic [ref=f7e134]:
+                - generic:
+                  - img:
+                    - generic:
+                      - img
+            - button "登出" [ref=f7e136] [cursor=pointer]:
+              - generic [ref=f7e137]:
+                - generic: 登出
+      - generic [ref=f7e138]:
+        - generic:
+          - generic [ref=f7e139]:
+            - generic [ref=f7e140]:
+              - generic: 主頁
+            - generic [ref=f7e143]: /
+          - generic [ref=f7e145]:
+            - generic: 表單建置器
+      - main [ref=f7e146]:
+        - generic [ref=f7e149]:
+          - banner [ref=f7e150]:
+            - generic [ref=f7e152]:
+              - button "back" [ref=f7e155] [cursor=pointer]:
+                - generic [ref=f7e156]:
+                  - img:
+                    - generic:
+                      - img
+              - generic [ref=f7e159]:
+                - generic: 建立新表單
+              - button "儲存" [ref=f7e162] [cursor=pointer]:
+                - generic [ref=f7e163]:
+                  - generic: 儲存
+          - main [ref=f7e164]:
+            - generic [ref=f7e167]:
+              - generic [ref=f7e171]:
+                - generic:
+                  - generic [ref=f7e172]: 表單標題
+                  - textbox [ref=f7e176]:
+                    - /placeholder: 輸入表單標題
+                    - text: UberMenu 滿意度問卷
+              - generic [ref=f7e177]:
+                - button "新增步驟" [ref=f7e180] [cursor=pointer]:
+                  - generic [ref=f7e181]:
+                    - generic:
+                      - img:
+                        - generic:
+                          - img
+                    - generic: 新增步驟
+                - generic [ref=f7e182]:
+                  - generic:
+                    - heading "第1步" [level=2] [ref=f7e184]:
+                      - textbox [ref=f7e188]:
+                        - /placeholder: 步驟標題
+                        - text: 第1步
+                    - generic [ref=f7e189]:
+                      - button "刪除此步驟" [ref=f7e191] [cursor=pointer]:
+                        - generic [ref=f7e192]:
+                          - generic:
+                            - img:
+                              - generic:
+                                - img
+                          - generic: 刪除此步驟
+                      - generic [ref=f7e193]:
+                        - heading "欄位列表" [level=4] [ref=f7e194]
+                        - button "新增欄位" [ref=f7e197] [cursor=pointer]:
+                          - generic [ref=f7e198]:
+                            - generic:
+                              - img:
+                                - generic:
+                                  - img
+                            - generic: 新增欄位

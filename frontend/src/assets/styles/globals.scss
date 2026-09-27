@@ -1,0 +1,135 @@
+@layer base {
+  * {
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --ion-default-font: "Chiron GoRound TC", sans-serif !important;
+  }
+
+  body {
+    font-family: "Chiron GoRound TC", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    line-height: $line-height-normal;
+    font-weight: $font-weight-normal;
+    color: var(--color-text-default);
+    background-color: var(--color-bg-default);
+    @include transition(
+      background-color,
+      $transition-speed-normal,
+      $transition-timing-ease-in-out
+    );
+  }
+
+  #app {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: $space-lg;
+  }
+
+  a {
+    color: var(--ion-color-primary);
+    text-decoration: none;
+    @include transition;
+
+    &:hover {
+      color: var(--ion-color-primary-tint);
+    }
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: $line-height-tight;
+    margin-bottom: $space-md;
+    color: inherit;
+  }
+
+  h1 {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+  }
+
+  h2 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+  }
+
+  h3 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+  }
+
+  p {
+    margin-bottom: $space-md;
+  }
+
+  [v-cloak] {
+    display: none;
+  }
+
+  /* Ionic Component Theme Mappings */
+  ion-toolbar {
+    --background: var(--ion-toolbar-background);
+    --color: var(--color-text-default);
+  }
+
+  ion-title {
+    --color: var(--color-text-default);
+    color: var(--color-text-default);
+  }
+
+  ion-card {
+    --background: var(--ion-card-background);
+    --color: var(--color-text-default);
+    background: var(--ion-card-background);
+    color: var(--color-text-default);
+  }
+
+  ion-card-header {
+    color: var(--color-text-default);
+  }
+
+  ion-card-title {
+    --color: var(--color-text-default);
+    color: var(--color-text-default);
+  }
+
+  ion-card-subtitle {
+    --color: var(--color-text-default);
+    color: var(--color-text-default);
+    opacity: 0.7;
+  }
+
+  ion-card-content {
+    --color: var(--color-text-default);
+    color: var(--color-text-default);
+  }
+
+  ion-content {
+    --background: var(--ion-background-color);
+    --color: var(--color-text-default);
+  }
+}

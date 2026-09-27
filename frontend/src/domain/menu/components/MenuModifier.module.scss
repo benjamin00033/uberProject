@@ -1,0 +1,47 @@
+@layer components {
+  .customBg {
+    --background: var(--ion-color-light);
+  }
+
+  .emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3.75rem var.$space-lg;
+  }
+
+  .emptyIcon {
+    font-size: 64px;
+    color: var(--ion-color-medium);
+    margin-bottom: var.$space-md;
+  }
+
+  .modifierGroup {
+    margin-bottom: var.$space-md;
+    border-radius: var.$radius-xl;
+    overflow: hidden;
+    background-color: var(--color-card-bg);
+    box-shadow: var.$shadow-sm;
+  }
+
+  .groupHeader {
+    --background: var(--color-card-bg);
+    border-bottom: 1px solid var(--ion-color-light-shade);
+    padding-bottom: var.$space-sm;
+    padding-top: var.$space-sm;
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: var.$font-weight-semibold;
+      color: var(--ion-color-dark);
+    }
+
+    p {
+      font-size: var.$font-size-xs;
+      color: var(--ion-color-medium);
+      margin-top: var.$space-xs;
+    }
+  }
+}

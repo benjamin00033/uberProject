@@ -1,0 +1,25 @@
+@layer components {
+  .datePickerWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var.$space-md;
+  }
+  
+  .label {
+    font-size: var.$font-size-sm;
+    font-weight: var.$font-weight-semibold;
+    margin-bottom: var.$space-xs;
+    color: var(--color-text-default);
+  }
+  
+  .datetimeContainer {
+    border: 1px solid var(--ion-color-medium);
+    border-radius: var.$radius-md;
+    overflow: hidden;
+  }
+  
+  .errorText {
+    font-size: var.$font-size-xs;
+    margin-top: var.$space-xs;
+  }
+}

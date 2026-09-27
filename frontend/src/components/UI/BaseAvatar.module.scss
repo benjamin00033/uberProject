@@ -1,0 +1,30 @@
+
+@layer components {
+  .avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var.$radius-full;
+    overflow: hidden;
+    background-color: var(--ion-color-light, #f4f5f8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .fallback {
+    font-size: var.$font-size-md;
+    font-weight: var.$font-weight-semibold;
+    color: var(--ion-color-dark, #222428);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+}

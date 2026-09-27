@@ -1,0 +1,10 @@
+{
+  "name": "domain-scaffolder",
+  "description": "Pipeline for scaffolding new domains and pages.",
+  "skills": [
+    "skills/create-domain-page/SKILL.md"
+  ],
+  "hooks": [
+    "hooks.json"
+  ]
+}

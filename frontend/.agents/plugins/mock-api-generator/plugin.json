@@ -1,0 +1,7 @@
+{
+  "name": "mock-api-generator",
+  "description": "Pipeline for generating MSW mock APIs and integrating them into the project.",
+  "skills": [
+    "skills/create-mock-api/SKILL.md"
+  ]
+}

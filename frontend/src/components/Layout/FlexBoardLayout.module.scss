@@ -1,0 +1,28 @@
+.boardContainer {
+  min-height: 100%;
+  padding: 16px;
+  background: var(--ion-background-color, #f4f5f8);
+}
+
+.boardGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.boardGrid > :global(*) {
+  /* Default: try to take up half space minus gap, allowing wrap */
+  flex: 1 1 calc(50% - 16px);
+  min-width: 350px;
+  max-width: 100%;
+  margin: 0;
+  /* Make sure the card itself can grow if needed */
+  display: flex;
+  flex-direction: column;
+}
+
+/* If there is exactly one child, it takes 100% width */
+.boardGrid > :global(*:only-child) {
+  flex: 1 1 100%;
+}

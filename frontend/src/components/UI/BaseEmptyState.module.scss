@@ -1,0 +1,39 @@
+
+@layer components {
+  .emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var.$space-2xl var.$space-md;
+    text-align: center;
+  }
+
+  .iconWrapper {
+    margin-bottom: var.$space-md;
+    
+    .icon {
+      font-size: 4rem;
+      color: var(--ion-color-medium, #92949c);
+    }
+  }
+
+  .title {
+    font-size: var.$font-size-lg;
+    font-weight: var.$font-weight-semibold;
+    margin-bottom: var.$space-xs;
+    color: var(--ion-text-color, #121212);
+  }
+
+  .description {
+    font-size: var.$font-size-sm;
+    color: var(--ion-color-medium, #92949c);
+    max-width: 300px;
+    margin: 0 auto var.$space-lg;
+    line-height: var.$line-height-relaxed;
+  }
+
+  .actionWrapper {
+    margin-top: var.$space-md;
+  }
+}

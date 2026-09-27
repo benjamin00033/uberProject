@@ -1,0 +1,7 @@
+{
+  "name": "component-builder",
+  "description": "Pipeline for creating standard UI components using Ionic and ui-standardize.",
+  "skills": [
+    "skills/create-component/SKILL.md"
+  ]
+}

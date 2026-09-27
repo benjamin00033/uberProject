@@ -1,0 +1,25 @@
+@layer components {
+  .sliderWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var.$space-md;
+  }
+  
+  .label {
+    font-size: var.$font-size-sm;
+    font-weight: var.$font-weight-semibold;
+    margin-bottom: var.$space-xs;
+    color: var(--color-text-default);
+  }
+  
+  .item {
+    --background: transparent;
+    --padding-start: 0;
+    --inner-padding-end: 0;
+  }
+  
+  .errorText {
+    font-size: var.$font-size-xs;
+    margin-top: var.$space-xs;
+  }
+}

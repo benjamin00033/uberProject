@@ -1,0 +1,164 @@
+@layer components {
+  .calendarContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 600px;
+    background: var(--ion-color-light, #f4f5f8);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: var(--ion-color-white, #fff);
+    border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
+    
+    h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
+
+  .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: var(--ion-color-step-50, #f2f2f2);
+    border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
+  }
+
+  .weekday {
+    padding: 12px 0;
+    text-align: center;
+    font-weight: bold;
+    color: var(--ion-color-medium, #92949c);
+    font-size: 0.9rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    flex: 1;
+    background: var(--ion-color-step-150, #d7d8da);
+    gap: 1px; /* create borders between cells */
+  }
+
+  .cell {
+    background: var(--ion-color-white, #fff);
+    min-height: 100px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    
+    &.today {
+      background: var(--ion-color-primary-tint, #ebf3ff);
+      .dateNumber {
+        color: var(--ion-color-primary, #3880ff);
+        font-weight: bold;
+      }
+    }
+    
+    &.holidayCell {
+      background: rgba(var(--ion-color-danger-rgb, 235, 68, 90), 0.08);
+    }
+  }
+
+  .dateNumber {
+    font-size: 0.85rem;
+    color: var(--ion-color-medium);
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* We added global classes in template (date-header, holiday-name, etc) so we can nest them inside .cell if we use :global() or just style them normally if not using module */
+  .cell :global(.date-header) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4px;
+  }
+
+  .cell :global(.date-number) {
+    font-size: 0.85rem;
+    color: var(--ion-color-medium);
+  }
+
+  .cell :global(.date-number.is-today) {
+    font-weight: bold;
+    color: var(--ion-color-primary);
+  }
+
+  .cell :global(.date-number.is-holiday) {
+    color: var(--ion-color-danger);
+  }
+
+  .cell :global(.holiday-name) {
+    font-size: 0.65rem;
+    color: var(--ion-color-danger);
+    background: rgba(var(--ion-color-danger-rgb, 235, 68, 90), 0.1);
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-top: 2px;
+    display: inline-block;
+    align-self: flex-start;
+  }
+
+  .tasksList {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .taskChip {
+    font-size: 0.75rem;
+    padding: 2px 4px;
+    background: var(--ion-color-primary, #3880ff);
+    color: white;
+    cursor: grab;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 0; // default for middle of spanning task
+
+    &:active {
+      cursor: grabbing;
+      opacity: 0.8;
+    }
+  }
+
+  .taskStart {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    margin-left: 2px;
+  }
+
+  .taskEnd {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-right: 2px;
+  }
+
+  .taskConflict {
+    background: var(--ion-color-danger, #eb445a);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

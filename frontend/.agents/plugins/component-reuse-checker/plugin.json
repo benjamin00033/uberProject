@@ -1,0 +1,5 @@
+{
+  "name": "component-reuse-checker",
+  "version": "1.0.0",
+  "description": "Ensure UI components are reused instead of duplicated, and manage the scope (shared vs domain) when modifications are needed."
+}

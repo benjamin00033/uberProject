@@ -1,0 +1,16 @@
+@layer components {
+  .testCard {
+    margin-bottom: var.$space-lg;
+    background: var(--color-card-bg);
+  }
+
+  .description {
+    font-size: var.$font-size-sm;
+    color: var(--ion-color-secondary);
+    margin-bottom: var.$space-md;
+  }
+
+  .contentWrapper {
+    margin-top: var.$space-md;
+  }
+}

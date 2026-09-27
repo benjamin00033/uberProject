@@ -1,0 +1,44 @@
+@layer base {
+  ion-button[size="large"][shape="round"] {
+    --padding-start: 36px;
+    --padding-end: 36px;
+  }
+
+  ion-button[size="large"] {
+    height: 60px; /* 覆寫預設的 large 高度 */
+    font-size: 18px;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+    --padding-start: 28px;
+    --padding-end: 28px;
+  }
+
+  ion-toolbar {
+    --background: var(--ion-toolbar-background);
+    --color: var(--ion-text-color);
+  }
+
+  /* 針對 Web / 桌機版 (螢幕寬度大於 768px 或 992px 時) 進行覆寫 */
+  @media (min-width: 768px) {
+    /* 隱藏 Web 版預設的 MD 陰影 */
+    ion-header::after {
+      display: none !important;
+    }
+
+    /* 為 Web 版加上專屬的柔和陰影，或是直接設為 0 */
+    ion-toolbar {
+      --border-width: 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); /* 桌機版特有的柔和寬陰影 */
+    }
+  }
+
+  @media (min-width: 768px) {
+    ion-modal.responsive-modal {
+      --width: 600px;
+      --max-width: 90vw;
+      --height: 70vh;
+      --border-radius: 12px;
+      --box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+  }
+}

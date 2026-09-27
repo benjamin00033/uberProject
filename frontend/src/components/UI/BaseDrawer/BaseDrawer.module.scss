@@ -1,0 +1,12 @@
+
+@layer components {
+  .drawerModal {
+    --border-radius: 16px;
+  }
+  .content {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 16px;
+    --padding-bottom: 16px;
+  }
+}

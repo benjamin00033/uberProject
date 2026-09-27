@@ -1,0 +1,35 @@
+@layer components {
+  .timeScheduleEditor {
+    margin-bottom: var.$space-md;
+  }
+
+  .errorText {
+    color: var(--ion-color-danger);
+    font-size: var.$font-size-xs;
+    padding-left: var.$space-md;
+    margin-top: var.$space-xs;
+  }
+
+  .timePeriodRow {
+    display: flex;
+    align-items: center;
+    gap: var.$space-sm;
+    margin-bottom: var.$space-sm;
+  }
+
+  .timeInput {
+    flex: 1;
+  }
+
+  .toText {
+    color: var(--ion-color-medium);
+  }
+
+  .addTimeBtn {
+    margin-top: var.$space-sm;
+  }
+
+  .actionButtons {
+    margin-top: var.$space-lg;
+  }
+}

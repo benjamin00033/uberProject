@@ -1,0 +1,22 @@
+@layer components {
+  .loadingState,
+  .errorState,
+  .emptyState {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: var(--ion-color-medium);
+  }
+
+  .pageTitle {
+    display: flex;
+    align-items: center;
+    gap: var.$space-sm;
+  }
+
+  .titleIcon {
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+}

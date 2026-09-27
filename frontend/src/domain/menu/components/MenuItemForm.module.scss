@@ -1,0 +1,19 @@
+@layer components {
+  .menuItemForm {
+    margin-bottom: var.$space-md;
+  }
+
+  .errorText {
+    color: var(--ion-color-danger);
+    font-size: var.$font-size-xs;
+    padding-left: var.$space-md;
+    margin-top: var.$space-xs;
+  }
+
+  .actionButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: var.$space-sm;
+    margin-top: var.$space-md;
+  }
+}

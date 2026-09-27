@@ -1,0 +1,160 @@
+//  非關聯顏色內容
+// ============================================
+// GLOBAL SCSS VARIABLES
+// ============================================
+// Reusable variables injected globally via vite.config.ts
+
+// SPACING SCALE
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;
+$space-2xl: 3rem;
+
+// TYPOGRAPHY SCALE
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+
+// BORDER RADIUS
+$radius-sm: 0.25rem;
+$radius-md: 0.375rem;
+$radius-lg: 0.5rem;
+$radius-xl: 0.75rem;
+$radius-full: 9999px;
+
+// SHADOWS
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+
+// TRANSITIONS
+$transition-speed-fast: 100ms;
+$transition-speed-normal: 150ms;
+$transition-speed-slow: 200ms;
+
+$transition-timing-ease-in: ease-in;
+$transition-timing-ease-out: ease-out;
+$transition-timing-ease-in-out: ease-in-out;
+$transition-timing-linear: linear;
+
+// BREAKPOINTS
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Z-INDEX
+$z-dropdown: 1000;
+$z-modal: 1100;
+$z-popover: 1200;
+$z-tooltip: 1300;
+
+// ================================
+
+// ============================================
+// TYPOGRAPHY BASE
+// ============================================
+
+// Base Heading Styles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: $space-md;
+  color: inherit; // Inherits from your theme text color
+}
+
+// Specific Headings
+h1 {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+}
+
+h2 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+}
+
+h3 {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-normal;
+}
+
+h4 {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-normal;
+}
+
+h5 {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-normal;
+}
+
+h6 {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em; // Adds a bit of breathing room for tiny, uppercase text
+}
+
+// Paragraphs
+p {
+  font-size: $font-size-md;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-relaxed;
+  margin-top: 0;
+  margin-bottom: $space-md;
+
+  // Prevents layout breaking by removing margin on the last paragraph in a container
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Forms & Labels
+label {
+  display: inline-block;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-normal;
+  margin-bottom: $space-xs;
+}
+
+// Small Text Elements
+small,
+.text-small {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+}
+
+// Strong / Bold
+strong,
+b {
+  font-weight: $font-weight-bold;
+}

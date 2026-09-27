@@ -1,0 +1,18 @@
+
+@layer components {
+  .tabsContainer {
+    width: 100%;
+  }
+
+  .segment {
+    margin-bottom: var(--ion-margin, 16px);
+  }
+
+  .segmentButton {
+    /* Style tab button if needed */
+  }
+
+  .content {
+    /* Style content container if needed */
+  }
+}

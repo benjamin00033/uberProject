@@ -1,0 +1,29 @@
+@layer components {
+  .myDesktopSelect {
+    &::part(content) {
+      min-width: 250px;
+      max-height: 400px;
+    }
+  }
+
+  .ionCol {
+    align-items: center;
+    justify-items: center;
+    gap: 16px;
+    margin-inline: 16px;
+  }
+
+  .pageTitle {
+    display: flex;
+    align-items: center;
+    gap: var.$space-sm;
+  }
+
+  .titleIcon {
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+  .gridContainer {
+    margin-block: 10px;
+  }
+}

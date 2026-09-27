@@ -1,0 +1,5 @@
+{
+  "name": "inline-style-checker",
+  "description": "提供檢查 Vue 檔案中是否違規使用 inline style 的技能與工具。",
+  "version": "1.0.0"
+}

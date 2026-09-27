@@ -1,0 +1,94 @@
+# ============================================================
+# .dockerignore — 最小化 build context，壓縮 image 體積
+# ============================================================
+
+# === 依賴（Docker 內部重新安裝）===
+node_modules/
+.pnpm-store/
+
+# === 本機建置產出（Docker 內部重新 build）===
+dist/
+build/
+*.tsbuildinfo
+
+# === 測試檔案與覆蓋率（Production 不需要）===
+test/
+tests/
+**/test/
+**/tests/
+**/__tests__/
+**/*.spec.ts
+**/*.spec.js
+**/*.test.ts
+**/*.test.js
+**/*.e2e-spec.ts
+coverage/
+.nyc_output/
+jest*.json
+jest.config.*
+
+# === Mock 資料與模擬檔 ===
+mock/
+mocks/
+**/mock/
+**/mocks/
+**/__mocks__/
+
+# === 大型壓縮包與備份檔（避免上傳數百 MB 至 Build Context）===
+*.tar.gz
+*.tar
+*.zip
+*.tgz
+*.rar
+*.7z
+uber-menu-api.tar.gz
+
+# === 版本控制 ===
+.git/
+.gitignore
+.gitattributes
+
+# === 環境機敏資訊（runtime 注入，禁止 bake 進 image）===
+.env
+.env.*
+!.env.example
+
+# === IDE / Editor 設定與暫存 ===
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+*~
+
+# === AI Agent / Conventions / 開發企劃 ===
+.agents/
+planning/
+
+# === 日誌與暫存 ===
+logs/
+*.log
+**/*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === OS 系統垃圾 ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Docker 自身與編排設定 ===
+Dockerfile*
+.dockerignore
+docker-compose*.yml
+
+# === 文件、規範與非 runtime 腳本 ===
+*.md
+generate_menu_module.js
+eslint.config.*
+.prettierrc*
+.prettierignore
+*.sql

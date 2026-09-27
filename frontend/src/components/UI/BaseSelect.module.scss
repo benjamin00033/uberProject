@@ -1,0 +1,31 @@
+@layer components {
+  .baseSelectWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  .label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ion-color-dark);
+  }
+  .select {
+    --background: rgba(var(--ion-color-light-rgb), 0.5);
+    border: 1px solid var(--ion-color-step-200);
+    border-radius: 8px;
+    padding: 0 12px;
+    min-height: 44px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    
+    &.hasError {
+      border-color: var(--ion-color-danger);
+    }
+  }
+  .errorText {
+    font-size: 0.8rem;
+    color: var(--ion-color-danger);
+  }
+}

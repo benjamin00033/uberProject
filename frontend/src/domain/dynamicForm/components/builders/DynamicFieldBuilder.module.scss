@@ -1,0 +1,42 @@
+@layer components {
+  .fieldContainer {
+    padding: var.$space-sm;
+    border: 1px solid var(--ion-color-light-shade);
+    border-radius: var.$radius-md;
+    margin-bottom: var.$space-sm;
+  }
+
+  .propsSection {
+    padding-left: var.$space-md;
+  }
+
+  .propsTitle {
+    font-size: 0.9em;
+    margin-bottom: var.$space-xs;
+    display: block;
+  }
+
+  .groupConfig {
+    padding: 16px;
+    border: 1px dashed var(--ion-color-medium);
+    border-radius: 8px;
+  }
+  
+  .childField {
+    margin-top: 16px;
+    padding-left: 16px;
+    border-left: 4px solid var(--ion-color-primary);
+  }
+  
+  .arrayConfig {
+    padding: 16px;
+    border: 1px dashed var(--ion-color-tertiary);
+    border-radius: 8px;
+  }
+  
+  .itemSchemaField {
+    margin-top: 16px;
+    padding-left: 16px;
+    border-left: 4px solid var(--ion-color-tertiary);
+  }
+}

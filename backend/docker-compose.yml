@@ -1,0 +1,40 @@
+# ============================================================
+# docker-compose.yml
+# uber-menu-backend — Docker 部署設定
+# 部署目標: Google VM（cloudflared 已獨立部署於 VM）
+# ============================================================
+# 一鍵部署: docker compose up -d --build
+# ============================================================
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: uber-menu-api:latest
+    container_name: uber-menu-api
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    ports:
+      - '3000:3000'
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://localhost:3000/api/v1/menus').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '3'
